@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="WebsBySoc — premium web design and digital craftsmanship for modern brands, enterprises, growing businesses, and sole proprietors." />
+  <title>WebsBySoc | Digital Craftsmanship for the Modern Brand</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta8PUb2IDqA1X7DktEYh8jLfyI9J5nyLeeKUpzqRrg3Ww==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            ivory: '#F7F3EC',
+            ink: '#171717',
+            smoke: '#5F5A52',
+            gold: '#9A7B4F',
+            champagne: '#C8A96A',
+          },
+          boxShadow: {
+            luxury: '0 30px 80px rgba(23, 23, 23, 0.14)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --ivory: #F7F3EC;
+      --warm: #EFE8DC;
+      --ink: #171717;
+      --smoke: #5F5A52;
+      --gold: #9A7B4F;
+      --champagne: #C8A96A;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--ivory);
+      color: var(--ink);
+      text-rendering: geometricPrecision;
+    }
+
+    body::selection {
+      background: rgba(154, 123, 79, 0.28);
+      color: var(--ink);
+    }
+
+    .luxury-noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 60;
+      opacity: 0.045;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    .nav-blur {
+      background: rgba(247, 243, 236, 0.74);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      border-bottom: 1px solid rgba(23, 23, 23, 0.08);
+    }
+
+    .hero-bg {
+      background:
+        linear-gradient(120deg, rgba(247, 243, 236, 0.94), rgba(247, 243, 236, 0.68) 42%, rgba(23, 23, 23, 0.34)),
+        url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2200&q=85') center/cover no-repeat;
+    }
+
+    .hairline {
+      background: linear-gradient(90deg, transparent, rgba(154, 123, 79, 0.55), transparent);
+    }
+
+    .catalog-card img,
+    .hero-card img {
+      filter: saturate(0.88) contrast(1.05);
+    }
+
+    .reveal-up {
+      opacity: 0;
+      transform: translateY(22px);
+      animation: revealUp 0.9s cubic-bezier(.2,.8,.2,1) forwards;
+    }
+
+    .delay-1 { animation-delay: 0.12s; }
+    .delay-2 { animation-delay: 0.24s; }
+    .delay-3 { animation-delay: 0.36s; }
+
+    @keyframes revealUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+  </style>
+</head>
+<body class="antialiased">
+  <div class="luxury-noise" aria-hidden="true"></div>
+
+  <header class="nav-blur fixed inset-x-0 top-0 z-50">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-6 lg:px-8" aria-label="Main navigation">
+      <a href="#home" class="font-serif text-2xl font-bold tracking-tight text-ink transition hover:text-gold" aria-label="WebsBySoc home">
+        WebsBySoc
+      </a>
+
+      <div class="hidden items-center gap-8 md:flex">
+        <a href="#services" class="text-sm font-medium text-ink/70 transition hover:text-ink">Services</a>
+        <a href="#catalog" class="text-sm font-medium text-ink/70 transition hover:text-ink">Catalog</a>
+        <a href="#process" class="text-sm font-medium text-ink/70 transition hover:text-ink">Process</a>
+        <a href="#contact" class="text-sm font-medium text-ink/70 transition hover:text-ink">Contact</a>
+      </div>
+
+      <a href="#contact" class="rounded-full bg-ink px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-black/10 transition hover:-translate-y-0.5 hover:bg-gold hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-ivory">
+        Start Your Project
+      </a>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="hero-bg relative flex min-h-screen items-center overflow-hidden pt-24">
+      <div class="absolute -left-28 top-32 h-72 w-72 rounded-full bg-gold/20 blur-3xl" aria-hidden="true"></div>
+      <div class="absolute bottom-16 right-0 h-96 w-96 rounded-full bg-black/10 blur-3xl" aria-hidden="true"></div>
+
+      <div class="relative mx-auto grid max-w-7xl items-center gap-14 px-6 py-20 lg:grid-cols-[1.08fr_0.92fr] lg:px-8">
+        <div class="max-w-4xl text-center lg:text-left">
+          <p class="reveal-up mb-6 text-xs font-bold uppercase tracking-[0.42em] text-gold">
+            Bespoke Websites • Brand Systems • Digital Presence
+          </p>
+          <h1 class="reveal-up delay-1 font-serif text-5xl font-bold leading-[0.95] tracking-tight text-ink sm:text-7xl lg:text-8xl">
+            Digital Craftsmanship for the Modern Brand.
+          </h1>
+          <p class="reveal-up delay-2 mx-auto mt-8 max-w-2xl text-lg leading-8 text-smoke sm:text-xl lg:mx-0">
+            From massive enterprises to visionary sole proprietors, we build high-end websites that command attention.
+          </p>
+          <div class="reveal-up delay-3 mt-10 flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
+            <a href="#catalog" class="rounded-full bg-ink px-8 py-4 text-sm font-bold uppercase tracking-[0.18em] text-white shadow-2xl shadow-black/15 transition hover:-translate-y-1 hover:bg-gold focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-ivory">
+              View Our Catalog
+            </a>
+            <a href="#contact" class="rounded-full border border-ink/20 bg-white/35 px-8 py-4 text-sm font-bold uppercase tracking-[0.18em] text-ink backdrop-blur transition hover:-translate-y-1 hover:border-gold hover:text-gold focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-ivory">
+              Let's Talk
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-card reveal-up delay-2 hidden lg:block">
+          <div class="relative rounded-[2.5rem] border border-white/50 bg-white/35 p-4 shadow-luxury backdrop-blur-xl">
+            <img
+              src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1200&q=85"
+              alt="Premium website design preview with architectural forms"
+              class="h-[34rem] w-full rounded-[2rem] object-cover shadow-2xl shadow-black/20"
+            />
+            <div class="absolute -bottom-8 -left-8 rounded-[1.5rem] border border-white/60 bg-white/70 p-6 shadow-2xl shadow-black/10 backdrop-blur-xl">
+              <p class="text-xs font-bold uppercase tracking-[0.28em] text-gold">Conversion Lift</p>
+              <p class="mt-2 font-serif text-4xl font-bold text-ink">+41%</p>
+            </div>
+            <div class="absolute -right-6 top-12 rounded-full border border-white/50 bg-ink px-5 py-3 text-xs font-bold uppercase tracking-[0.22em] text-white shadow-xl">
+              Studio Grade
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="relative bg-ivory py-28 sm:py-36">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-3xl text-center">
+          <p class="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-gold">
+            What We Build
+          </p>
+          <h2 class="font-serif text-4xl font-semibold tracking-tight text-ink sm:text-5xl lg:text-6xl">
+            Tailored Digital Solutions.
+          </h2>
+          <p class="mt-6 text-lg leading-8 text-smoke">
+            Bespoke websites crafted with strategic clarity, elevated design, and scalable engineering.
+          </p>
+        </div>
+
+        <div class="mt-20 grid grid-cols-1 gap-6 md:grid-cols-3">
+          <article class="group rounded-[2rem] border border-black/10 bg-white/55 p-8 shadow-sm backdrop-blur transition-all duration-500 hover:-translate-y-2 hover:border-gold/40 hover:bg-white/80 hover:shadow-2xl hover:shadow-black/10">
+            <div class="mb-8 flex h-14 w-14 items-center justify-center rounded-full border border-gold/30 text-gold transition-all duration-500 group-hover:bg-ink group-hover:text-white">
+              <i class="fa-regular fa-building text-xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="font-serif text-2xl font-semibold text-ink">Enterprise Platforms</h3>
+            <p class="mt-5 text-sm leading-7 text-smoke">
+              Scalable digital ecosystems built for complex integrations, bespoke architecture, and high-performance enterprise growth.
+            </p>
+            <div class="mt-8 h-px w-full bg-gradient-to-r from-gold/50 via-black/10 to-transparent"></div>
+          </article>
+
+          <article class="group rounded-[2rem] border border-black/10 bg-white/55 p-8 shadow-sm backdrop-blur transition-all duration-500 hover:-translate-y-2 hover:border-gold/40 hover:bg-white/80 hover:shadow-2xl hover:shadow-black/10">
+            <div class="mb-8 flex h-14 w-14 items-center justify-center rounded-full border border-gold/30 text-gold transition-all duration-500 group-hover:bg-ink group-hover:text-white">
+              <i class="fa-regular fa-chart-bar text-xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="font-serif text-2xl font-semibold text-ink">Growing Businesses</h3>
+            <p class="mt-5 text-sm leading-7 text-smoke">
+              Conversion-focused websites with dynamic design, intuitive CMS control, and strategic user journeys that turn attention into revenue.
+            </p>
+            <div class="mt-8 h-px w-full bg-gradient-to-r from-gold/50 via-black/10 to-transparent"></div>
+          </article>
+
+          <article class="group rounded-[2rem] border border-black/10 bg-white/55 p-8 shadow-sm backdrop-blur transition-all duration-500 hover:-translate-y-2 hover:border-gold/40 hover:bg-white/80 hover:shadow-2xl hover:shadow-black/10">
+            <div class="mb-8 flex h-14 w-14 items-center justify-center rounded-full border border-gold/30 text-gold transition-all duration-500 group-hover:bg-ink group-hover:text-white">
+              <i class="fa-regular fa-id-card text-xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="font-serif text-2xl font-semibold text-ink">Sole Proprietors</h3>
+            <p class="mt-5 text-sm leading-7 text-smoke">
+              Striking portfolios, refined brand identity, and rapid-launch websites designed to make independent founders look established from day one.
+            </p>
+            <div class="mt-8 h-px w-full bg-gradient-to-r from-gold/50 via-black/10 to-transparent"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="catalog" class="relative overflow-hidden bg-ink py-28 text-white sm:py-36">
+      <div class="absolute inset-0 opacity-20" aria-hidden="true">
+        <div class="absolute left-1/2 top-0 h-[30rem] w-[30rem] -translate-x-1/2 rounded-full bg-gold blur-[140px]"></div>
+      </div>
+
+      <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mb-20 flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+          <div>
+            <p class="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-champagne">
+              Selected Work
+            </p>
+            <h2 class="font-serif text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+              Our Curated Catalog.
+            </h2>
+          </div>
+          <p class="max-w-xl text-lg leading-8 text-white/65">
+            Explore our latest high-end builds.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 lg:auto-rows-[18rem] lg:grid-cols-12">
+          <article class="catalog-card group relative overflow-hidden rounded-[2rem] shadow-2xl shadow-black/40 lg:col-span-7 lg:row-span-2">
+            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=85" alt="Luxury real estate website preview" class="h-full min-h-[24rem] w-full object-cover transition-transform duration-700 group-hover:scale-105 lg:min-h-0" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-95"></div>
+            <div class="absolute inset-x-0 bottom-0 translate-y-6 p-8 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 sm:p-10">
+              <p class="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-champagne">Real Estate</p>
+              <h3 class="font-serif text-3xl font-semibold sm:text-4xl">Luxury Real Estate</h3>
+              <a href="#contact" class="mt-5 inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.22em] text-white/90 transition hover:text-champagne">
+                View Live <i class="fa-solid fa-arrow-right-long text-xs" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="catalog-card group relative overflow-hidden rounded-[2rem] shadow-2xl shadow-black/35 lg:col-span-5">
+            <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1100&q=85" alt="Boutique fashion e-commerce website preview" class="h-full min-h-[20rem] w-full object-cover transition-transform duration-700 group-hover:scale-105 lg:min-h-0" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent opacity-60 transition-opacity duration-500 group-hover:opacity-95"></div>
+            <div class="absolute inset-x-0 bottom-0 translate-y-6 p-8 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+              <p class="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-champagne">E-Commerce</p>
+              <h3 class="font-serif text-3xl font-semibold">Boutique Fashion</h3>
+              <a href="#contact" class="mt-5 inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.22em] text-white/90 transition hover:text-champagne">
+                View Live <i class="fa-solid fa-arrow-right-long text-xs" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="catalog-card group relative overflow-hidden rounded-[2rem] shadow-2xl shadow-black/35 lg:col-span-5">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1100&q=85" alt="Fine dining restaurant website preview" class="h-full min-h-[20rem] w-full object-cover transition-transform duration-700 group-hover:scale-105 lg:min-h-0" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent opacity-60 transition-opacity duration-500 group-hover:opacity-95"></div>
+            <div class="absolute inset-x-0 bottom-0 translate-y-6 p-8 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+              <p class="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-champagne">Hospitality</p>
+              <h3 class="font-serif text-3xl font-semibold">Fine Dining Restaurant</h3>
+              <a href="#contact" class="mt-5 inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.22em] text-white/90 transition hover:text-champagne">
+                View Live <i class="fa-solid fa-arrow-right-long text-xs" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="catalog-card group relative overflow-hidden rounded-[2rem] shadow-2xl shadow-black/35 lg:col-span-12">
+            <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1700&q=85" alt="Tech startup landing page website preview" class="h-full min-h-[20rem] w-full object-cover transition-transform duration-700 group-hover:scale-105 lg:min-h-0" />
+            <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/35 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-95"></div>
+            <div class="absolute bottom-0 left-0 max-w-xl translate-y-6 p-8 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 sm:p-10">
+              <p class="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-champagne">Technology</p>
+              <h3 class="font-serif text-3xl font-semibold sm:text-4xl">Tech Startup Landing Page</h3>
+              <a href="#contact" class="mt-5 inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.22em] text-white/90 transition hover:text-champagne">
+                View Live <i class="fa-solid fa-arrow-right-long text-xs" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="bg-[#EFE8DC] py-28 sm:py-36">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+          <div class="lg:sticky lg:top-28">
+            <p class="mb-4 text-xs font-bold uppercase tracking-[0.35em] text-gold">Process</p>
+            <h2 class="font-serif text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
+              A refined build path from idea to launch.
+            </h2>
+            <p class="mt-6 text-lg leading-8 text-smoke">
+              Every engagement is structured to keep momentum high, decisions clear, and the final website polished enough to feel custom-built — because it is.
+            </p>
+          </div>
+
+          <div class="space-y-5">
+            <article class="rounded-[2rem] border border-black/10 bg-white/55 p-8 shadow-sm transition hover:-translate-y-1 hover:bg-white/75 hover:shadow-xl hover:shadow-black/10">
+              <div class="mb-5 flex items-center gap-4">
+                <span class="flex h-11 w-11 items-center justify-center rounded-full bg-ink text-sm font-bold text-white">01</span>
+                <h3 class="font-serif text-2xl font-semibold">Strategy Session</h3>
+              </div>
+              <p class="leading-7 text-smoke">We map the audience, offer, site goals, conversion paths, and brand direction before a single screen is designed.</p>
+            </article>
+
+            <article class="rounded-[2rem] border border-black/10 bg-white/55 p-8 shadow-sm transition hover:-translate-y-1 hover:bg-white/75 hover:shadow-xl hover:shadow-black/10">
+              <div class="mb-5 flex items-center gap-4">
+                <span class="flex h-11 w-11 items-center justify-center rounded-full bg-ink text-sm font-bold text-white">02</span>
+                <h3 class="font-serif text-2xl font-semibold">Visual Direction</h3>
+              </div>
+              <p class="leading-7 text-smoke">Typography, layout, image treatment, motion, and components come together as a high-end visual system.</p>
+            </article>
+
+            <article class="rounded-[2rem] border border-black/10 bg-white/55 p-8 shadow-sm transition hover:-translate-y-1 hover:bg-white/75 hover:shadow-xl hover:shadow-black/10">
+              <div class="mb-5 flex items-center gap-4">
+                <span class="flex h-11 w-11 items-center justify-center rounded-full bg-ink text-sm font-bold text-white">03</span>
+                <h3 class="font-serif text-2xl font-semibold">Build & Launch</h3>
+              </div>
+              <p class="leading-7 text-smoke">The site is engineered responsively, performance-aware, and ready for clean deployment on GitHub Pages or your preferred host.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="relative overflow-hidden bg-ivory py-28 sm:py-36">
+      <div class="absolute inset-x-0 top-0 h-px hairline" aria-hidden="true"></div>
+      <div class="absolute -right-32 top-20 h-96 w-96 rounded-full bg-gold/15 blur-3xl" aria-hidden="true"></div>
+      <div class="mx-auto max-w-5xl px-6 text-center lg:px-8">
+        <p class="mb-4 text-xs font-bold uppercase tracking-[0.35em] text-gold">Start Your Project</p>
+        <h2 class="font-serif text-4xl font-semibold tracking-tight text-ink sm:text-6xl">
+          Ready for a website that feels impossible to ignore?
+        </h2>
+        <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-smoke">
+          Tell us what you are building, who it is for, and what the site needs to accomplish. We will shape the digital presence around the ambition.
+        </p>
+
+        <form class="mx-auto mt-12 grid max-w-3xl gap-4 rounded-[2rem] border border-black/10 bg-white/65 p-4 text-left shadow-2xl shadow-black/10 backdrop-blur sm:grid-cols-2 sm:p-6" action="mailto:hello@websbysoc.com" method="post" enctype="text/plain">
+          <label class="sr-only" for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" class="rounded-full border border-black/10 bg-white px-5 py-4 text-sm outline-none transition placeholder:text-smoke/50 focus:border-gold focus:ring-2 focus:ring-gold/20" />
+          <label class="sr-only" for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Email address" class="rounded-full border border-black/10 bg-white px-5 py-4 text-sm outline-none transition placeholder:text-smoke/50 focus:border-gold focus:ring-2 focus:ring-gold/20" />
+          <label class="sr-only" for="project">Project description</label>
+          <textarea id="project" name="project" placeholder="What are we building?" rows="5" class="rounded-[1.5rem] border border-black/10 bg-white px-5 py-4 text-sm outline-none transition placeholder:text-smoke/50 focus:border-gold focus:ring-2 focus:ring-gold/20 sm:col-span-2"></textarea>
+          <button type="submit" class="rounded-full bg-ink px-8 py-4 text-sm font-bold uppercase tracking-[0.18em] text-white transition hover:-translate-y-1 hover:bg-gold focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-white sm:col-span-2">
+            Request a Consultation
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-ink px-6 py-10 text-white lg:px-8">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 sm:flex-row">
+      <p class="font-serif text-2xl font-bold">WebsBySoc</p>
+      <p class="text-sm text-white/55">© 2026 WebsBySoc. Digital craftsmanship for modern brands.</p>
+      <div class="flex gap-4 text-white/60">
+        <a href="#home" class="transition hover:text-champagne" aria-label="Back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a>
+        <a href="#contact" class="transition hover:text-champagne" aria-label="Contact"><i class="fa-regular fa-envelope" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
