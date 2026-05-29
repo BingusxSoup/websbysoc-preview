@@ -1,4 +1,4 @@
-name: Deploy static site to GitHub Pages
+name: Validate static site
 
 on:
   push:
@@ -7,44 +7,14 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  validate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Enable Pages if needed
-        env:
-          TOK: ${{ github.token }}
+      - name: Confirm homepage exists
         run: |
-          curl -L -sS -o /tmp/pages-response.json -w "%{http_code}" \
-            -X POST \
-            -u "x-access-token:${TOK}" \
-            -H "Accept: application/vnd.github+json" \
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            https://api.github.com/repos/${{ github.repository }}/pages \
-            -d '{"build_type":"workflow"}' | tee /tmp/pages-status.txt
-          STATUS=$(cat /tmp/pages-status.txt)
-          cat /tmp/pages-response.json || true
-          if [ "$STATUS" != "201" ] && [ "$STATUS" != "204" ] && [ "$STATUS" != "409" ]; then
-            exit 1
-          fi
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: '.'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          test -f index.html
+          grep -q "Digital Craftsmanship for the Modern Brand" index.html
